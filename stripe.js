@@ -7,7 +7,7 @@ const stripeOnramp = StripeOnramp(
   //   const url = window.location.href.replace(/\/$/, "");
   //   const clientSecret = url.substring(url.lastIndexOf("/") + 1);
     const onrampSession = stripeOnramp.createSession({
-      clientSecret: "cos_1OPg5DFei5mxrNcIq3yXuQ49_secret_5ySrzoTB4uIVdcHJp2aYgCTzF00QmSTM0to",
+      clientSecret: "cos_1OPgJKFei5mxrNcIiMX8wnSj_secret_OT5TxXN9DOPUloWL5MhcQ8TKJ00YM7dAhTm",
       // other client side options that customize the look and feel
     });
     onrampSession
