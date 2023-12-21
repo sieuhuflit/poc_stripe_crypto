@@ -4,20 +4,23 @@ const stripeOnramp = StripeOnramp(
 initialize();
 // initialize onramp element with client secret
 function initialize() {
-  const url = window.location.href.replace(/\/$/, '');
-  const clientSecret = url.substring(url.lastIndexOf('/') + 1);
-  const onrampSession = stripeOnramp.createSession({
-    clientSecret,
+//   const url = window.location.href.replace(/\/$/, "");
+//   const clientSecret = url.substring(url.lastIndexOf("/") + 1);
+const onrampSession = stripeOnramp.createSession({
+    clientSecret: "cos_1OPgbeFei5mxrNcItkbuZ8M2_secret_qTvyraXb1nGezJbaCpzXS8pGL00HKUOhyqo",
     // other client side options that customize the look and feel
-  });
-  onrampSession
-    .addEventListener('onramp_session_updated', handleSessionUpdate)
+});
+onrampSession
+    .addEventListener("onramp_session_updated", handleSessionUpdate)
     .mount("#onramp-element");
 }
 function handleSessionUpdate(event) {
-  const session = event.payload.session;
-  if (session.status === 'fulfillment_complete' || session.status === 'rejected') {
+const session = event.payload.session;
+if (
+    session.status === "fulfillment_complete" ||
+    session.status === "rejected"
+) {
     // redirect back to mobile app via universal link
-    window.location.assign('/onramp_success/' + session.id);
+      window.location.assign("/onramp_success/" + session.id);
+    }
   }
-}
